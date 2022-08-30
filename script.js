@@ -1,11 +1,9 @@
-
-function getcomputerChoice() {
+function getcomputerChoice(compSelection) {
     let numberChoice = Math.floor(Math.random()*3);
     if (numberChoice==0) return 'rock';
     else if (numberChoice==1) return 'paper';
     else if (numberChoice==2) return 'scissors';
 }
-
 
 function gameRound(computerSelection,playerSelection) {
     if (computerSelection==playerSelection) return 'Tie!'
@@ -17,9 +15,12 @@ function gameRound(computerSelection,playerSelection) {
     playerSelection=='scissors' && computerSelection=='rock') return 'Computer wins!'
 }
 
-const getplayerSelection = prompt('Rock, Paper, Scissors');
-const playerSelection = getplayerSelection.toLowerCase();
+    for (let i=0; i<5; i++){
+        let playerSelection = prompt('Rock, Paper, Scissors')
+        let computerSelection = getcomputerChoice();
+        gameRound(computerSelection,playerSelection);
+        alert('Computer chose ' + computerSelection + ' and you chose ' + playerSelection + '. ' + gameRound(computerSelection,playerSelection));
+    }
 
-const computerSelection = getcomputerChoice();
 
-alert('Computer chose ' + computerSelection + ' and you chose ' + playerSelection + '. ' + gameRound(computerSelection,playerSelection));
+
